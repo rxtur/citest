@@ -20,7 +20,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
       
-    - name: Build
+    - name: Build app
       run: dotnet build --no-restore
       
     - name: Stop IIS
