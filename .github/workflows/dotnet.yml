@@ -19,9 +19,19 @@ jobs:
         dotnet-version: 5.0.x
     - name: Restore dependencies
       run: dotnet restore
+      
     - name: Build
       run: dotnet build --no-restore
+      
+    - name: Stop IIS
+      run: iisreset /stop
+      
     - name: Publish
       run: dotnet publish -c Release -o release
+      
     - name: Copy Folder
       run: Copy-Item C:\actions-runner\_work\citest\citest\release\* C:\actions-runner\citest -Recurse -Force
+      
+    - name: Start IIS
+      run: iisreset /start
+      
