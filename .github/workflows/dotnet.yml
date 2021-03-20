@@ -23,3 +23,5 @@ jobs:
       run: dotnet build --no-restore
     - name: Publish
       run: dotnet publish -c Release -o release
+    - name: Copy Folder
+      run: Copy-Item C:\actions-runner\_work\citest\citest\release\* C:\actions-runner\citest -Recurse -Force
